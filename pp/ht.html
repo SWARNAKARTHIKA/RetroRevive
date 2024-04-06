@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>website animated banner</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        overflow: hidden; /* Hide horizontal scrollbar */
+        display: flex;
+        justify-content: center; /* Center content horizontally */
+      }
+
+      section {
+        display: flex;
+        flex-direction: column; /* Align content vertically */
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #040404; /* Set the background color */
+        position: relative; /* Add relative positioning */
+        width: 100vw; /* Ensure section covers the entire viewport width */
+      }
+
+      section:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 30vw;
+        height: 30vw;
+      }
+
+      h2 {
+        position: absolute;
+        font-size: 8vw;
+        color: #fff;
+        font-weight: 400;
+        text-align: center;
+        line-height: 2em;
+        z-index: 5;
+      }
+
+      @font-face {
+        font-family: myfont;
+        src: url(munro.ttf);
+      }
+
+      h2 {
+        font-family: myfont;
+      }
+
+      .next {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 350px;
+        font-size: 2em;
+        color: white;
+      }
+
+      .n {
+        animation: bounce 1s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateX(0px);
+        }
+        50% {
+          transform: translateX(10px);
+        }
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      ul li {
+        font-family: myfont;
+        list-style: none;
+        animation: lighting 1s linear infinite;
+      }
+
+      @keyframes lighting {
+        0% {
+          color: #484848;
+          text-shadow: none;
+        }
+
+        90% {
+          color: #484848;
+          text-shadow: none;
+        }
+
+        100% {
+          color: #fff900;
+          text-shadow: 0 0 7px #fff900, 0 0 50px #ff6c00;
+        }
+      }
+
+      ul li:nth-child(1) {
+        animation-delay: 0;
+      }
+
+      ul li:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+
+      ul li:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+
+      ul li:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+
+      ul li:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+
+      ul li:nth-child(6) {
+        animation-delay: 0.5s;
+      }
+
+      ul li:nth-child(7) {
+        animation-delay: 0.6s;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>
+        <ul>
+          <li>R</li>
+          <li>E</li>
+          <li>T</li>
+          <li>R</li>
+          <li>O</li>
+          <li>R</li>
+          <li>E</li>
+          <li>V</li>
+          <li>I</li>
+          <li>V</li>
+          <li>E</li>
+        </ul>
+      </h2>
+      <a href="about.html" class="next">EXPLORE <span class="n">&gt;</span></a>
+    </section>
+
+    <script>
+      let section = document.querySelector("section");
+      let j = 0;
+      while (j < 200) {
+        let star = document.createElement("i");
+        let x = Math.floor(Math.random() * window.innerWidth);
+        star.style.left = `${x}px`;
+        let y = Math.floor(Math.random() * window.innerHeight);
+        star.style.top = `${y}px`;
+
+        let size = Math.random() * 4;
+        star.style.width = `${1 + size}px`;
+        star.style.height = `${1 + size}px`;
+
+        let duration = Math.random() * 2;
+        star.style.animationDuration = `${duration + 1}s`;
+
+        section.appendChild(star);
+        j++;
+      }
+    </script>
+  </body>
+</html>

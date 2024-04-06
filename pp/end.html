@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: myfont;
+        src: url(munro.ttf);
+      }
+
+      body {
+        background-image: url(nl.jpg);
+        animation: moveBackground 20s linear infinite;
+      }
+
+      .c {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        width: 100%;
+        height: 100vh;
+        font-family: myfont;
+      }
+
+      span::before {
+        content: "Pac-Man";
+        color: blueviolet;
+        animation: change 5s ease-in-out alternate infinite;
+      }
+
+      @keyframes moveBackground {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 100% 0;
+        }
+      }
+
+      @keyframes change {
+        10% {
+          content: "Tetris";
+        }
+        50% {
+          content: "Sonic the Hedgehog";
+        }
+        0% {
+          content: "Super Mario Bros.";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="c">
+      <h1>WE love <span></span></h1>
+    </div>
+  </body>
+</html>
